@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zinedinezidane10forever.github.io/Cours-Lille/sitemap.xml

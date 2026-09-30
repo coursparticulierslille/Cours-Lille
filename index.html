@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cours particuliers à domicile à Lille · Maths, Français, Anglais, HGGSP, SES</title>
+<meta name="description" content="Cours particuliers à domicile à Lille et dans la métropole, du CP à la terminale : maths, français, anglais, HGGSP et SES. Donnés par Noé Carel et Marie Buretin, étudiants à SKEMA passés par la classe préparatoire ECG. Réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout : une colonne sur fond blanc, sections alternées gris très clair ; accent bleu marine, second accent bleu canard. */
+:root{
+  --paper:#ffffff;
+  --surface:#ffffff;
+  --tint:#f5f7fa;
+  --ink:#16213a;
+  --muted:#5a6478;
+  --line:#e2e6ee;
+  --accent:#1f3d8f;
+  --accent-soft:#eaeff9;
+  --margin:#0f7280;
+  --ok:#1f8a5b;
+  --shadow:0 1px 2px rgba(27,35,64,.06),0 8px 24px rgba(27,35,64,.06);
+  --f-display:"Young Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --radius:14px;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#10141f;--surface:#171c2a;--tint:#131826;--ink:#e7eaf2;--muted:#a0a8bb;--line:#283045;
+  --accent:#8fa8ec;--accent-soft:#1f2842;--margin:#5cc3cf;--ok:#5fd49c;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#10141f;--surface:#171c2a;--tint:#131826;--ink:#e7eaf2;--muted:#a0a8bb;--line:#283045;
+  --accent:#8fa8ec;--accent-soft:#1f2842;--margin:#5cc3cf;--ok:#5fd49c;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.8em 1.25em;border-radius:999px;font:600 .95rem/1 var(--f-body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .2s ease,background .2s ease,box-shadow .2s ease,color .2s}
+.btn-primary{background:var(--accent);color:var(--surface)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,61,143,.22)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn svg{width:1em;height:1em;transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+
+/* En-tête */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 85%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.top.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-size:1.3rem;color:var(--ink);text-decoration:none}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--accent);display:grid;place-items:center}
+.logo-mark svg{width:18px;height:18px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.btn-primary,.nav-links a.btn-primary:hover{color:var(--surface)}
+@media (max-width:760px){.nav-links a:not(.btn){display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding-block:72px 84px;background:linear-gradient(180deg,var(--tint),var(--paper))}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.7rem);margin-block:18px 22px}
+.hero h1 .hl{color:var(--accent)}
+.hero h1 .ink{position:relative;white-space:nowrap}
+.hero h1 .ink svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.36em;overflow:visible}
+.hero h1 .ink path{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:0;animation:draw 1.1s .5s ease-out backwards}
+@keyframes draw{from{stroke-dashoffset:400}}
+.lead{font-size:1.15rem;color:var(--muted);max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;color:var(--muted);font-size:.92rem}
+.facts span{display:inline-flex;align-items:center;gap:8px}
+.facts svg{width:17px;height:17px;color:var(--ok);flex:none}
+.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) backwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
+@keyframes rise{from{transform:translateY(14px);opacity:0}}
+
+/* Carte « fiche » dans le hero */
+.fiche{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);padding:22px;transform:rotate(1.2deg);transition:transform .4s ease}
+.fiche:hover{transform:rotate(0)}
+.fiche-head{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.fiche-row{display:flex;align-items:center;gap:14px;padding-block:14px;border-bottom:1px dashed var(--line)}
+.fiche-row:last-of-type{border-bottom:0}
+.fiche-row b{display:block;font-weight:600}
+.fiche-row small{color:var(--muted);font-size:.85rem}
+.fiche-slots{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.slot{font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-variant-numeric:tabular-nums}
+.fiche-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+
+.avatar{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:1.1rem;color:var(--surface);background:var(--accent)}
+.avatar.alt{background:var(--margin)}
+
+/* Sections */
+section.block{padding-block:88px}
+.sec-head{display:grid;gap:12px;margin-bottom:44px;max-width:640px}
+.sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem)}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.alt-bg{background:var(--tint);border-block:1px solid var(--line)}
+
+/* Étapes */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+.step{position:relative;padding-top:18px;border-top:2px solid var(--line);transition:border-color .3s}
+.step:hover{border-top-color:var(--accent)}
+.step-n{font-family:var(--f-display);font-size:1.9rem;color:var(--accent);line-height:1}
+.step h3{font-family:var(--f-body);font-weight:600;font-size:1.1rem;margin-block:12px 6px}
+.step p{color:var(--muted)}
+
+/* Profs */
+.profs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.prof{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:18px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
+.prof:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.prof-top{display:flex;gap:16px;align-items:center}
+.prof .avatar{width:64px;height:64px;font-size:1.5rem}
+.prof h3{font-size:1.5rem}
+.prof-sub{color:var(--muted);font-size:.93rem}
+.prof-quote{font-size:1.02rem;min-height:3.2em}
+.cv{display:grid;gap:8px;margin:0;padding:0;list-style:none;font-size:.93rem}
+.cv li{display:grid;grid-template-columns:92px 1fr;gap:10px}
+.cv span{color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.8rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.star{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:600}
+.prof .btn{align-self:flex-start;margin-top:auto}
+
+/* Matières */
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.level{padding:28px;border-right:1px solid var(--line)}
+.level:last-child{border-right:0}
+.level h3{font-size:1.35rem;margin-bottom:4px}
+.level .classes{color:var(--muted);font-size:.88rem;margin-bottom:16px;font-variant-numeric:tabular-nums}
+.level ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.level li{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+.level em{font-style:normal;color:var(--muted);font-size:.88rem}
+.level li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+
+/* Tarifs */
+.prices{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:720px}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:grid;gap:6px}
+.price .lvl{font-weight:600}
+.price .amt{font-family:var(--f-display);font-size:2.4rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.price .amt small{font-family:var(--f-body);font-size:.95rem;color:var(--muted)}
+.price p{color:var(--muted);font-size:.9rem}
+.price.feat{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.price-notes{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;color:var(--muted);font-size:.93rem}
+.price-notes b{color:var(--ink);font-weight:600}
+
+/* Réservation */
+.booking{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start}
+.picker{display:grid;gap:12px}
+.pick{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border-radius:var(--radius);border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.pick:hover{transform:translateX(3px)}
+.pick[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.pick b{display:block;font-weight:600}
+.pick small{color:var(--muted);font-size:.85rem}
+.pick .check{margin-left:auto;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;transition:all .2s}
+.pick[aria-selected="true"] .check{background:var(--accent);border-color:var(--accent)}
+.pick .check svg{width:12px;height:12px;color:var(--surface);opacity:0;transition:opacity .2s}
+.pick[aria-selected="true"] .check svg{opacity:1}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:0}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line)}
+.panel-head h3{font-size:1.3rem}
+.panel-body{padding:24px;animation:fade .35s ease}
+@keyframes fade{from{opacity:.2;transform:translateY(6px)}}
+.embed{width:100%;height:640px;border:0;display:block;background:var(--surface)}
+.week{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.day{display:grid;gap:6px;align-content:start}
+.day-name{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:4px}
+.day .s{font-size:.85rem;text-align:center;padding:7px 0;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+.day .s.off{background:transparent;color:var(--muted);opacity:.45;text-decoration:line-through;font-weight:400}
+.notice{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--paper);border:1px dashed var(--line);color:var(--muted);font-size:.92rem}
+.notice svg{width:20px;height:20px;flex:none;color:var(--accent);margin-top:1px}
+.panel-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:760px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
+details[open]{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+summary{cursor:pointer;list-style:none;padding:18px 20px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:none;width:22px;height:22px;position:relative}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:4px;right:4px;top:10px;height:2px;background:var(--accent);border-radius:2px;transition:transform .25s}
+summary .pm::after{transform:rotate(90deg)}
+details[open] summary .pm::after{transform:rotate(0)}
+details p{padding:0 20px 18px;color:var(--muted)}
+
+/* Contact / pied */
+.contact{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;background:var(--accent);color:var(--surface);border-radius:22px;padding:40px}
+.contact h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--surface)}
+.contact p{opacity:.85;margin-top:8px}
+.contact>div:first-child{flex:1 1 100%;min-width:0}
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;flex:1 1 100%;min-width:0}
+.contact-card{display:flex;gap:12px;align-items:flex-start;background:var(--surface);color:var(--ink);border-radius:14px;padding:16px;min-width:0}
+.contact-card .avatar{width:40px;height:40px;font-size:.95rem}
+.contact-card>div{display:grid;gap:2px;min-width:0}
+.contact-card a{color:var(--muted);text-decoration:none;font-size:.9rem;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.contact-card a:hover{color:var(--accent)}
+.ct{display:grid;gap:2px;text-transform:none!important;letter-spacing:0!important;font-size:.93rem!important;font-weight:400!important;padding-top:0!important}
+.ct a{color:var(--ink);text-decoration:none;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.ct a:hover{color:var(--accent)}
+footer{padding-block:40px 56px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .fiche{max-width:440px}
+  .booking{grid-template-columns:1fr}
+  .picker{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  section.block{padding-block:64px}
+  .steps,.profs,.prices{grid-template-columns:1fr}
+  .levels{grid-template-columns:1fr}
+  .level{border-right:0;border-bottom:1px solid var(--line)}
+  .level:last-child{border-bottom:0}
+  .contact{padding:28px}
+  .contacts{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .picker{grid-template-columns:1fr}
+  .week{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .week .day:nth-child(n+4){display:none}
+  .cv li{grid-template-columns:1fr;gap:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<link rel="canonical" href="https://zinedinezidane10forever.github.io/Cours-Lille/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://zinedinezidane10forever.github.io/Cours-Lille/">
+<meta property="og:title" content="Cours particuliers à domicile à Lille">
+<meta property="og:description" content="Du CP à la terminale, par deux étudiants passés par la classe préparatoire ECG. Choisissez votre professeur et réservez un créneau.">
+<meta name="theme-color" content="#1f3d8f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3d8f'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Georgia'%3ECL%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Cours particuliers à Lille – Noé Carel & Marie Buretin", "url": "https://zinedinezidane10forever.github.io/Cours-Lille/", "description": "Cours particuliers à domicile à Lille, du CP à la terminale.", "areaServed": {"@type": "City", "name": "Lille"}, "address": {"@type": "PostalAddress", "addressLocality": "Lille", "addressCountry": "FR"}, "employee": [{"@type": "Person", "name": "Noé Carel", "telephone": "+33632909766", "email": "noe.carel@skema.edu"}, {"@type": "Person", "name": "Marie Buretin", "telephone": "+33763743369", "email": "marie.buretin@skema.edu"}], "knowsAbout": ["Mathématiques", "Français", "Anglais", "HGGSP", "SES"]}</script>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#accueil" aria-label="Encre Bleue, accueil">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
+      <span data-brand>Encre Bleue</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#profs">Les professeurs</a>
+      <a href="#matieres">Matières</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-primary" href="#reserver">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow rise d1">Cours particuliers · du CP à la terminale</p>
+        <h1 class="rise d2">Des cours donnés par des étudiants passés par la <span class="hl">classe préparatoire <span class="ink">ECG<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 50 2, 120 12, 198 5"/></svg></span></span></h1>
+        <p class="lead rise d3">Choisissez votre professeur, réservez un créneau libre dans son agenda et recevez la confirmation par mail. Les cours ont lieu à domicile, à Lille et dans la métropole.</p>
+        <div class="hero-cta rise d4">
+          <a class="btn btn-primary" href="#reserver">Voir les créneaux <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#profs">Découvrir les professeurs</a>
+        </div>
+      </div>
+
+      <aside class="fiche rise d3" aria-label="Aperçu des disponibilités">
+        <div class="fiche-head"><span>Cette semaine</span><span>Exemple</span></div>
+        <div id="ficheRows"></div>
+        <p class="fiche-note">Créneaux donnés à titre d'exemple. Les vrais horaires sont dans la section Réserver.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block alt-bg" id="comment">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Trois étapes, sans inscription</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><h3>Choisissez un professeur</h3><p>Lisez les profils et prenez celui qui correspond à l'élève et à la matière.</p></div>
+        <div class="step"><div class="step-n">2</div><h3>Réservez un créneau</h3><p>Ses disponibilités s'affichent en direct. Indiquez le niveau, la matière et votre adresse.</p></div>
+        <div class="step"><div class="step-n">3</div><h3>Recevez la confirmation</h3><p>Un mail de confirmation arrive tout de suite, puis un rappel avant le cours.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="profs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Les professeurs</p>
+        <h2>Deux anciens élèves de prépa, aujourd'hui en école de commerce</h2>
+        <p>Deux ans de classe préparatoire à l'Institution des Chartreux à Lyon, puis le Programme Grande École de SKEMA. La classe préparatoire nous a appris à saisir les méthodes de travail les plus efficaces pour progresser.</p>
+      </div>
+      <div class="profs" id="profCards"></div>
+    </div>
+  </section>
+
+  <section class="block alt-bg" id="matieres">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Matières et niveaux</p>
+        <h2>Les matières proposées</h2>
+        <p>Suivi régulier tout au long de l'année ou préparation au brevet et au bac.</p>
+      </div>
+      <div class="levels">
+        <div class="level"><h3>Primaire</h3><p class="classes">CP → CM2</p><ul><li>Mathématiques</li><li>Français</li><li>Anglais</li></ul></div>
+        <div class="level"><h3>Collège</h3><p class="classes">6e → 3e</p><ul><li>Mathématiques</li><li>Français</li><li>Anglais</li></ul></div>
+        <div class="level"><h3>Lycée</h3><p class="classes">2de → terminale</p><ul><li>Mathématiques</li><li>Français et bac de français</li><li>Spécialité HGGSP <em>(Noé)</em></li><li>Spécialité SES <em>(Marie)</em></li><li>Anglais</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="tarifs">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tarifs</p>
+        <h2>Des prix clairs, à l'heure</h2>
+        <p>Vous payez directement le professeur, sans commission ni abonnement.</p>
+      </div>
+      <div class="prices" id="priceCards"></div>
+      <div class="price-notes" id="priceNotes"></div>
+    </div>
+  </section>
+
+  <section class="block alt-bg" id="reserver">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Réserver</p>
+        <h2>Choisissez votre professeur, puis un créneau</h2>
+        <p>Chaque professeur gère son propre agenda. Les créneaux affichés sont ceux qui sont encore libres.</p>
+      </div>
+      <div class="booking">
+        <div class="picker" role="tablist" aria-label="Choix du professeur" id="picker"></div>
+        <div class="panel" role="tabpanel" id="panel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2>Avant de réserver</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Comment se passe le paiement ?<span class="pm"></span></summary><p id="faqPay"></p></details>
+        <details><summary>Puis-je annuler ou déplacer un cours ?<span class="pm"></span></summary><p>Oui, depuis le lien présent dans le mail de confirmation. Merci de prévenir au moins 24 heures à l'avance.</p></details>
+        <details><summary>Où ont lieu les cours à domicile ?<span class="pm"></span></summary><p id="faqZone"></p></details>
+        <details><summary>Et si aucun créneau ne convient ?<span class="pm"></span></summary><p>Appelez ou écrivez au professeur : on trouve souvent un horaire en dehors de ceux affichés, surtout pendant les vacances scolaires.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div><h2>Une question avant de commencer ?</h2><p>Appelez ou écrivez directement au professeur de votre choix. Nous répondons en général dans la journée.</p></div>
+        <div class="contacts" id="contacts"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="year"></span> <span data-brand>Encre Bleue</span> · Cours particuliers à domicile à Lille</span><a href="#top">Haut de page ↑</a></div></footer>
+
+<script>
+/* ============================================================
+   RÉGLAGES : c'est ici qu'on modifie le contenu du site.
+   ============================================================ */
+const CONFIG = {
+  nom: "Encre Bleue",
+  zone: "Lille et sa métropole (Lille, Villeneuve-d'Ascq, Marcq-en-Barœul, Lambersart…)",
+  paiement: "Par virement bancaire, directement au professeur, après le cours. Aucun paiement sur le site.",
+  tarifs: [
+    { niveau: "Primaire et collège", prix: 20, detail: "Du CP à la 3e" },
+    { niveau: "Lycée",               prix: 25, detail: "De la 2de à la terminale, bac et Parcoursup" }
+  ],
+  notesTarifs: [
+    ["Déplacement", "inclus à Lille et dans la métropole"],
+    ["Durée", "1 h ou 1 h 30"],
+    ["Paiement", "par virement"]
+  ],
+  profs: [
+    {
+      id: "noe", prenom: "Noé", nom: "Carel", initiales: "NC", couleur: "",
+      accroche: "Passionné de géopolitique, j'adore aussi transmettre la méthode : organiser son travail, construire une copie, préparer un oral.",
+      formation: "L3, Programme Grande École, SKEMA",
+      prepa: "2 ans de classe préparatoire à l'Institution des Chartreux, Lyon",
+      matieres: ["Mathématiques", "Français", "HGGSP", "Anglais", "Méthodologie", "Préparation aux oraux"],
+      vedette: "HGGSP",
+      tel: "+33632909766", telAffiche: "06 32 90 97 66", email: "noe.carel@skema.edu",
+      // ← coller ici le lien de la page de rendez-vous Google Agenda de Noé
+      lienAgenda: ""
+    },
+    {
+      id: "marie", prenom: "Marie", nom: "Buretin", initiales: "MB", couleur: "alt",
+      accroche: "Deux ans de prépa m'ont appris à travailler avec méthode. C'est ce que je transmets en cours.",
+      formation: "L3, Programme Grande École, SKEMA",
+      prepa: "2 ans de classe préparatoire à l'Institution des Chartreux, Lyon",
+      matieres: ["Mathématiques", "Français", "SES", "Anglais"],
+      vedette: "SES",
+      tel: "+33763743369", telAffiche: "07 63 74 33 69", email: "marie.buretin@skema.edu",
+      // ← coller ici le lien de la page de rendez-vous Google Agenda de Marie
+      lienAgenda: ""
+    }
+  ]
+};
+/* ============================================================ */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+document.querySelectorAll("[data-brand]").forEach(e => e.textContent = CONFIG.nom);
+$("#year").textContent = new Date().getFullYear();
+$("#faqPay").textContent = CONFIG.paiement;
+$("#faqZone").textContent = "Dans " + CONFIG.zone + ".";
+
+// Aperçu dans le hero (exemple)
+const exemples = [["Lun 17:30","Mer 14:00","Sam 10:00"],["Mar 18:00","Jeu 17:00","Sam 14:30"]];
+$("#ficheRows").innerHTML = CONFIG.profs.map((p,i) => `
+  <div class="fiche-row"><span class="avatar ${p.couleur}">${esc(p.initiales)}</span>
+  <div><b>${esc(p.prenom)} ${esc(p.nom)}</b><small>${esc(p.prepa)}</small>
+  <div class="fiche-slots">${(exemples[i]||exemples[0]).map(s=>`<span class="slot">${s}</span>`).join("")}</div></div></div>`).join("");
+
+// Fiches profs
+$("#profCards").innerHTML = CONFIG.profs.map(p => `
+  <article class="prof">
+    <div class="prof-top"><span class="avatar ${p.couleur}">${esc(p.initiales)}</span>
+      <div><h3>${esc(p.prenom)} ${esc(p.nom)}</h3><p class="prof-sub">Étudiant${p.id==="marie"?"e":""} à SKEMA Business School</p></div></div>
+    <p class="prof-quote">« ${esc(p.accroche)} »</p>
+    <ul class="cv"><li><span>Prépa</span>${esc(p.prepa)}</li><li><span>École</span>${esc(p.formation)}</li><li><span>Format</span>À domicile, Lille et métropole</li><li><span>Contact</span><span class="ct"><a href="tel:${p.tel}">${esc(p.telAffiche)}</a><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></span></li></ul>
+    <div class="tags">${p.matieres.map(m=>`<span class="tag ${m===p.vedette?"star":""}">${esc(m)}</span>`).join("")}</div>
+    <a class="btn btn-primary" href="#reserver" data-go="${p.id}">Réserver avec ${esc(p.prenom)} ${arrow}</a>
+  </article>`).join("");
+
+// Tarifs
+$("#priceCards").innerHTML = CONFIG.tarifs.map(t => `
+  <div class="price ${t.vedette?"feat":""}"><span class="lvl">${esc(t.niveau)}</span>
+  <span class="amt">${t.prix} €<small> / heure</small></span><p>${esc(t.detail)}</p></div>`).join("");
+$("#priceNotes").innerHTML = CONFIG.notesTarifs.map(([a,b]) => `<span><b>${esc(a)} :</b> ${esc(b)}</span>`).join("");
+
+// Réservation
+const canEmbed = !/claude|anthropic/i.test(location.hostname) && location.protocol.startsWith("http");
+let current = CONFIG.profs[0].id;
+try { const saved = localStorage.getItem("prof"); if (CONFIG.profs.some(p=>p.id===saved)) current = saved; } catch(e) {}
+
+const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+function renderPicker(){
+  $("#picker").innerHTML = CONFIG.profs.map(p => `
+    <button class="pick" role="tab" id="tab-${p.id}" aria-selected="${p.id===current}" data-id="${p.id}" type="button">
+      <span class="avatar ${p.couleur}">${esc(p.initiales)}</span>
+      <span><b>${esc(p.prenom)} ${esc(p.nom)}</b><small>${esc(p.vedette || "Toutes matières")}</small></span>
+      <span class="check">${check}</span></button>`).join("");
+}
+function withGv(url){ return url + (url.includes("?") ? "&" : "?") + "gv=true"; }
+function renderPanel(){
+  const p = CONFIG.profs.find(x => x.id === current);
+  const head = `<div class="panel-head"><h3>Agenda de ${esc(p.prenom)}</h3><span class="tag">Cours d'1 h · à domicile</span></div>`;
+  let body;
+  if (p.lienAgenda && canEmbed) {
+    body = `<iframe class="embed" src="${esc(withGv(p.lienAgenda))}" title="Agenda de ${esc(p.prenom)}" loading="lazy"></iframe>`;
+    $("#panel").innerHTML = head + body; return;
+  }
+  const days = ["Lun","Mar","Mer","Jeu","Ven"];
+  const grid = p.id === "noe"
+    ? [["17:30","18:30"],["off"],["14:00","15:00","16:00"],["17:30"],["off"]]
+    : [["off"],["18:00","19:00"],["10:00","11:00"],["17:00"],["17:30"]];
+  const week = `<div class="week" aria-hidden="true">${days.map((d,i)=>`<div class="day"><div class="day-name">${d}</div>${grid[i].map(s=>s==="off"?'<div class="s off">—</div>':`<div class="s">${s}</div>`).join("")}</div>`).join("")}</div>`;
+  if (p.lienAgenda) {
+    body = week + `<div class="panel-foot"><a class="btn btn-primary" href="${esc(p.lienAgenda)}" target="_blank" rel="noopener">Ouvrir l'agenda de ${esc(p.prenom)} ${arrow}</a><span class="prof-sub">La réservation s'ouvre dans un nouvel onglet.</span></div>`;
+  } else {
+    body = week + `<div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><span>Exemple d'affichage. L'agenda en ligne de ${esc(p.prenom)} arrive bientôt. En attendant, réservez par téléphone au <b>${esc(p.telAffiche)}</b> ou par mail à <b>${esc(p.email)}</b>.</span></div>`;
+  }
+  $("#panel").innerHTML = head + `<div class="panel-body">${body}</div>`;
+}
+function select(id){
+  current = id;
+  try { localStorage.setItem("prof", id); } catch(e) {}
+  renderPicker(); renderPanel();
+}
+$("#picker").addEventListener("click", e => { const b = e.target.closest(".pick"); if (b) select(b.dataset.id); });
+$("#picker").addEventListener("keydown", e => {
+  if (!["ArrowDown","ArrowUp","ArrowLeft","ArrowRight"].includes(e.key)) return;
+  e.preventDefault();
+  const i = CONFIG.profs.findIndex(p=>p.id===current), d = (e.key==="ArrowDown"||e.key==="ArrowRight") ? 1 : -1;
+  select(CONFIG.profs[(i + d + CONFIG.profs.length) % CONFIG.profs.length].id);
+  $("#tab-"+current).focus();
+});
+document.addEventListener("click", e => { const a = e.target.closest("[data-go]"); if (a) select(a.dataset.go); });
+renderPicker(); renderPanel();
+
+// En-tête au défilement
+const hdr = $("header.top");
+addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 8), {passive:true});
+
+// Contacts
+$("#contacts").innerHTML = CONFIG.profs.map(p => `
+  <div class="contact-card"><span class="avatar ${p.couleur}">${esc(p.initiales)}</span>
+    <div><b>${esc(p.prenom)} ${esc(p.nom)}</b>
+    <a href="tel:${p.tel}">${esc(p.telAffiche)}</a><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></div></div>`).join("");
+</script>
+
+</body>
+</html>
