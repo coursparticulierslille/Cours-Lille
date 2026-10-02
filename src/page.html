@@ -1,9 +1,4 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Cours particuliers à domicile à Lille · Maths, Français, Anglais, HGGSP, SES</title>
+<title>Encre Bleue</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
@@ -273,19 +268,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   html{scroll-behavior:auto}
 }
 </style>
-<meta name="description" content="Cours particuliers à domicile à Lille et dans la métropole, du CP à la terminale : maths, français, anglais, HGGSP et SES. Donnés par Noé Carel et Marie Burtin, étudiants à SKEMA passés par la classe préparatoire ECG. Réservation en ligne.">
-<link rel="canonical" href="https://coursparticulierslille.github.io/Cours-Lille/">
-<meta name="robots" content="index,follow">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://coursparticulierslille.github.io/Cours-Lille/">
-<meta property="og:title" content="Cours particuliers à domicile à Lille">
-<meta property="og:description" content="Du CP à la terminale, par deux étudiants passés par la classe préparatoire ECG. Choisissez votre professeur et réservez un créneau.">
-<meta name="theme-color" content="#1f3d8f">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f3d8f'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='Georgia'%3ECL%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Cours particuliers à Lille – Noé Carel & Marie Burtin", "url": "https://coursparticulierslille.github.io/Cours-Lille/", "description": "Cours particuliers à domicile à Lille, du CP à la terminale.", "areaServed": {"@type": "City", "name": "Lille"}, "address": {"@type": "PostalAddress", "addressLocality": "Lille", "addressCountry": "FR"}, "employee": [{"@type": "Person", "name": "Noé Carel", "telephone": "+33632909766", "email": "noe.carel@skema.edu"}, {"@type": "Person", "name": "Marie Burtin", "telephone": "+33763743369", "email": "marie.burtin@skema.edu"}], "knowsAbout": ["Mathématiques", "Français", "Anglais", "HGGSP", "SES"]}</script>
-</head>
-<body>
 
 <header class="top" id="top">
   <div class="wrap nav">
@@ -484,7 +466,7 @@ $("#priceCards").innerHTML = CONFIG.tarifs.map(t => `
 $("#priceNotes").innerHTML = CONFIG.notesTarifs.map(([a,b]) => `<span><b>${esc(a)} :</b> ${esc(b)}</span>`).join("");
 
 // Créneaux libres (mis à jour automatiquement à partir des agendas)
-const SLOTS = {"maj": "2026-10-02T09:00", "profs": {"noe": [["2026-10-03", "10:00", "20:00"], ["2026-10-05", "17:10", "20:00"], ["2026-10-07", "15:25", "20:00"], ["2026-10-08", "14:00", "18:05"], ["2026-10-09", "17:10", "20:00"], ["2026-10-10", "10:00", "12:35"], ["2026-10-10", "15:25", "20:00"], ["2026-10-12", "14:00", "17:50"], ["2026-10-13", "14:00", "20:00"], ["2026-10-14", "15:25", "20:00"], ["2026-10-15", "14:00", "17:50"], ["2026-10-16", "17:10", "20:00"], ["2026-10-17", "13:40", "20:00"], ["2026-10-19", "14:00", "20:00"], ["2026-10-20", "14:00", "20:00"], ["2026-10-24", "10:00", "20:00"], ["2026-10-26", "15:25", "20:00"], ["2026-10-27", "17:10", "20:00"], ["2026-10-29", "14:00", "20:00"], ["2026-10-30", "14:00", "20:00"], ["2026-10-31", "10:00", "20:00"]], "marie": null}};
+const SLOTS = /*SLOTS*/null;
 const JOURS = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
 const MOIS = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
 const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
@@ -627,6 +609,3 @@ $("#contacts").innerHTML = CONFIG.profs.map(p => `
     <div><b>${esc(p.prenom)} ${esc(p.nom)}</b>
     <a href="tel:${p.tel}">${esc(p.telAffiche)}</a><a href="mailto:${esc(p.email)}">${esc(p.email)}</a></div></div>`).join("");
 </script>
-
-</body>
-</html>
