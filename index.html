@@ -395,7 +395,7 @@ const CONFIG = {
   ],
   notesTarifs: [
     ["Déplacement", "inclus à Lille et dans la métropole"],
-    ["Durée", "1 h ou 1 h 30"],
+    ["Durée", "1 h 30 ou 2 h par séance"],
     ["Paiement", "par virement"]
   ],
   profs: [
@@ -474,7 +474,7 @@ function renderPicker(){
 function withGv(url){ return url + (url.includes("?") ? "&" : "?") + "gv=true"; }
 function renderPanel(){
   const p = CONFIG.profs.find(x => x.id === current);
-  const head = `<div class="panel-head"><h3>Agenda de ${esc(p.prenom)}</h3><span class="tag">Cours d'1 h · à domicile</span></div>`;
+  const head = `<div class="panel-head"><h3>Agenda de ${esc(p.prenom)}</h3><span class="tag">Séances de 1 h 30 à 2 h · à domicile</span></div>`;
   let body;
   if (p.lienAgenda && canEmbed) {
     body = `<iframe class="embed" src="${esc(withGv(p.lienAgenda))}" title="Agenda de ${esc(p.prenom)}" loading="lazy"></iframe>`;
@@ -482,8 +482,8 @@ function renderPanel(){
   }
   const days = ["Lun","Mar","Mer","Jeu","Ven"];
   const grid = p.id === "noe"
-    ? [["17:30","18:30"],["off"],["14:00","15:00","16:00"],["17:30"],["off"]]
-    : [["off"],["18:00","19:00"],["10:00","11:00"],["17:00"],["17:30"]];
+    ? [["17:30"],["off"],["15:30"],["14:00","16:00","18:00"],["17:30"]]
+    : [["off"],["18:00"],["14:30","16:30"],["17:00"],["17:30"]];
   const week = `<div class="week" aria-hidden="true">${days.map((d,i)=>`<div class="day"><div class="day-name">${d}</div>${grid[i].map(s=>s==="off"?'<div class="s off">—</div>':`<div class="s">${s}</div>`).join("")}</div>`).join("")}</div>`;
   if (p.lienAgenda) {
     body = week + `<div class="panel-foot"><a class="btn btn-primary" href="${esc(p.lienAgenda)}" target="_blank" rel="noopener">Ouvrir l'agenda de ${esc(p.prenom)} ${arrow}</a><span class="prof-sub">La réservation s'ouvre dans un nouvel onglet.</span></div>`;
